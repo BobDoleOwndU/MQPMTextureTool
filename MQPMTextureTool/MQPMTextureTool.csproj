@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF26DE65-D9AC-48B5-BDA1-3CEA2E26B370}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MQPMTextureTool</RootNamespace>
+    <AssemblyName>MQPMTextureTool</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CityHash">
+      <HintPath>bin\Debug\CityHash.dll</HintPath>
+    </Reference>
+    <Reference Include="GzsTool.Core">
+      <HintPath>bin\Debug\GzsTool.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zlib.Portable">
+      <HintPath>bin\Debug\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FatiguesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FatiguesForm.Designer.cs">
+      <DependentUpon>FatiguesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\ArchiveHandler.cs" />
+    <Compile Include="Tools\HexSwapper.cs" />
+    <Compile Include="Tools\TextureEditor.cs" />
+    <EmbeddedResource Include="FatiguesForm.resx">
+      <DependentUpon>FatiguesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="assets\camo\ambush\dds3_main0_def_c24_bsm.1.ftexs" />
+    <None Include="assets\camo\ambush\dds3_main0_def_c24_bsm.2.ftexs" />
+    <None Include="assets\camo\ambush\dds3_main0_def_c24_bsm.3.ftexs" />
+    <None Include="assets\camo\ambush\dds3_main0_def_c24_bsm.ftex" />
+    <None Include="assets\camo\animals\dds3_main0_def_c15_bsm.1.ftexs" />
+    <None Include="assets\camo\animals\dds3_main0_def_c15_bsm.2.ftexs" />
+    <None Include="assets\camo\animals\dds3_main0_def_c15_bsm.3.ftexs" />
+    <None Include="assets\camo\animals\dds3_main0_def_c15_bsm.ftex" />
+    <None Include="assets\camo\apd\dds3_main0_def_c13_bsm.1.ftexs" />
+    <None Include="assets\camo\apd\dds3_main0_def_c13_bsm.2.ftexs" />
+    <None Include="assets\camo\apd\dds3_main0_def_c13_bsm.3.ftexs" />
+    <None Include="assets\camo\apd\dds3_main0_def_c13_bsm.ftex" />
+    <None Include="assets\camo\birchleaf2t\dds3_main0_def_c58_bsm.1.ftexs" />
+    <None Include="assets\camo\birchleaf2t\dds3_main0_def_c58_bsm.2.ftexs" />
+    <None Include="assets\camo\birchleaf2t\dds3_main0_def_c58_bsm.3.ftexs" />
+    <None Include="assets\camo\birchleaf2t\dds3_main0_def_c58_bsm.ftex" />
+    <None Include="assets\camo\birchleaf\dds3_main0_def_c19_bsm.1.ftexs" />
+    <None Include="assets\camo\birchleaf\dds3_main0_def_c19_bsm.2.ftexs" />
+    <None Include="assets\camo\birchleaf\dds3_main0_def_c19_bsm.3.ftexs" />
+    <None Include="assets\camo\birchleaf\dds3_main0_def_c19_bsm.ftex" />
+    <None Include="assets\camo\blackocelot\dds3_main0_def_c04_bsm.1.ftexs" />
+    <None Include="assets\camo\blackocelot\dds3_main0_def_c04_bsm.2.ftexs" />
+    <None Include="assets\camo\blackocelot\dds3_main0_def_c04_bsm.3.ftexs" />
+    <None Include="assets\camo\blackocelot\dds3_main0_def_c04_bsm.ftex" />
+    <None Include="assets\camo\blueurban\dds3_main0_def_c09_bsm.1.ftexs" />
+    <None Include="assets\camo\blueurban\dds3_main0_def_c09_bsm.2.ftexs" />
+    <None Include="assets\camo\blueurban\dds3_main0_def_c09_bsm.3.ftexs" />
+    <None Include="assets\camo\blueurban\dds3_main0_def_c09_bsm.ftex" />
+    <None Include="assets\camo\brickred\dds3_main0_def_c42_bsm.1.ftexs" />
+    <None Include="assets\camo\brickred\dds3_main0_def_c42_bsm.2.ftexs" />
+    <None Include="assets\camo\brickred\dds3_main0_def_c42_bsm.3.ftexs" />
+    <None Include="assets\camo\brickred\dds3_main0_def_c42_bsm.ftex" />
+    <None Include="assets\camo\camouflagegreen\dds3_main0_def_c44_bsm.1.ftexs" />
+    <None Include="assets\camo\camouflagegreen\dds3_main0_def_c44_bsm.2.ftexs" />
+    <None Include="assets\camo\camouflagegreen\dds3_main0_def_c44_bsm.3.ftexs" />
+    <None Include="assets\camo\camouflagegreen\dds3_main0_def_c44_bsm.ftex" />
+    <None Include="assets\camo\camouflageyellow\dds3_main0_def_c43_bsm.1.ftexs" />
+    <None Include="assets\camo\camouflageyellow\dds3_main0_def_c43_bsm.2.ftexs" />
+    <None Include="assets\camo\camouflageyellow\dds3_main0_def_c43_bsm.3.ftexs" />
+    <None Include="assets\camo\camouflageyellow\dds3_main0_def_c43_bsm.ftex" />
+    <None Include="assets\camo\citrullus2t\dds3_main0_def_c56_bsm.1.ftexs" />
+    <None Include="assets\camo\citrullus2t\dds3_main0_def_c56_bsm.2.ftexs" />
+    <None Include="assets\camo\citrullus2t\dds3_main0_def_c56_bsm.3.ftexs" />
+    <None Include="assets\camo\citrullus2t\dds3_main0_def_c56_bsm.ftex" />
+    <None Include="assets\camo\citrullus\dds3_main0_def_c31_bsm.1.ftexs" />
+    <None Include="assets\camo\citrullus\dds3_main0_def_c31_bsm.2.ftexs" />
+    <None Include="assets\camo\citrullus\dds3_main0_def_c31_bsm.3.ftexs" />
+    <None Include="assets\camo\citrullus\dds3_main0_def_c31_bsm.ftex" />
+    <None Include="assets\camo\darkleaffleck\dds3_main0_def_c22_bsm.1.ftexs" />
+    <None Include="assets\camo\darkleaffleck\dds3_main0_def_c22_bsm.2.ftexs" />
+    <None Include="assets\camo\darkleaffleck\dds3_main0_def_c22_bsm.3.ftexs" />
+    <None Include="assets\camo\darkleaffleck\dds3_main0_def_c22_bsm.ftex" />
+    <None Include="assets\camo\darkrubber\dds3_main0_def_c40_bsm.1.ftexs" />
+    <None Include="assets\camo\darkrubber\dds3_main0_def_c40_bsm.2.ftexs" />
+    <None Include="assets\camo\darkrubber\dds3_main0_def_c40_bsm.3.ftexs" />
+    <None Include="assets\camo\darkrubber\dds3_main0_def_c40_bsm.ftex" />
+    <None Include="assets\camo\darkrust\dds3_main0_def_c55_bsm.1.ftexs" />
+    <None Include="assets\camo\darkrust\dds3_main0_def_c55_bsm.2.ftexs" />
+    <None Include="assets\camo\darkrust\dds3_main0_def_c55_bsm.3.ftexs" />
+    <None Include="assets\camo\darkrust\dds3_main0_def_c55_bsm.ftex" />
+    <None Include="assets\camo\deadleaf\dds3_main0_def_c29_bsm.1.ftexs" />
+    <None Include="assets\camo\deadleaf\dds3_main0_def_c29_bsm.2.ftexs" />
+    <None Include="assets\camo\deadleaf\dds3_main0_def_c29_bsm.3.ftexs" />
+    <None Include="assets\camo\deadleaf\dds3_main0_def_c29_bsm.ftex" />
+    <None Include="assets\camo\desertambush\dds3_main0_def_c20_bsm.1.ftexs" />
+    <None Include="assets\camo\desertambush\dds3_main0_def_c20_bsm.2.ftexs" />
+    <None Include="assets\camo\desertambush\dds3_main0_def_c20_bsm.3.ftexs" />
+    <None Include="assets\camo\desertambush\dds3_main0_def_c20_bsm.ftex" />
+    <None Include="assets\camo\desertfox\dds3_main0_def_c05_bsm.1.ftexs" />
+    <None Include="assets\camo\desertfox\dds3_main0_def_c05_bsm.2.ftexs" />
+    <None Include="assets\camo\desertfox\dds3_main0_def_c05_bsm.3.ftexs" />
+    <None Include="assets\camo\desertfox\dds3_main0_def_c05_bsm.ftex" />
+    <None Include="assets\camo\desertsand\dds3_main0_def_c36_bsm.1.ftexs" />
+    <None Include="assets\camo\desertsand\dds3_main0_def_c36_bsm.2.ftexs" />
+    <None Include="assets\camo\desertsand\dds3_main0_def_c36_bsm.3.ftexs" />
+    <None Include="assets\camo\desertsand\dds3_main0_def_c36_bsm.ftex" />
+    <None Include="assets\camo\digitalbush\dds3_main0_def_c32_bsm.1.ftexs" />
+    <None Include="assets\camo\digitalbush\dds3_main0_def_c32_bsm.2.ftexs" />
+    <None Include="assets\camo\digitalbush\dds3_main0_def_c32_bsm.3.ftexs" />
+    <None Include="assets\camo\digitalbush\dds3_main0_def_c32_bsm.ftex" />
+    <None Include="assets\camo\goldentiger2t\dds3_main0_def_c57_bsm.1.ftexs" />
+    <None Include="assets\camo\goldentiger2t\dds3_main0_def_c57_bsm.2.ftexs" />
+    <None Include="assets\camo\goldentiger2t\dds3_main0_def_c57_bsm.3.ftexs" />
+    <None Include="assets\camo\goldentiger2t\dds3_main0_def_c57_bsm.ftex" />
+    <None Include="assets\camo\goldentiger\dds3_main0_def_c03_bsm.1.ftexs" />
+    <None Include="assets\camo\goldentiger\dds3_main0_def_c03_bsm.2.ftexs" />
+    <None Include="assets\camo\goldentiger\dds3_main0_def_c03_bsm.3.ftexs" />
+    <None Include="assets\camo\goldentiger\dds3_main0_def_c03_bsm.ftex" />
+    <None Include="assets\camo\grass\dds3_main0_def_c26_bsm.1.ftexs" />
+    <None Include="assets\camo\grass\dds3_main0_def_c26_bsm.2.ftexs" />
+    <None Include="assets\camo\grass\dds3_main0_def_c26_bsm.3.ftexs" />
+    <None Include="assets\camo\grass\dds3_main0_def_c26_bsm.ftex" />
+    <None Include="assets\camo\grayurban\dds3_main0_def_c10_bsm.1.ftexs" />
+    <None Include="assets\camo\grayurban\dds3_main0_def_c10_bsm.2.ftexs" />
+    <None Include="assets\camo\grayurban\dds3_main0_def_c10_bsm.3.ftexs" />
+    <None Include="assets\camo\grayurban\dds3_main0_def_c10_bsm.ftex" />
+    <None Include="assets\camo\gray\dds3_main0_def_c41_bsm.1.ftexs" />
+    <None Include="assets\camo\gray\dds3_main0_def_c41_bsm.2.ftexs" />
+    <None Include="assets\camo\gray\dds3_main0_def_c41_bsm.3.ftexs" />
+    <None Include="assets\camo\gray\dds3_main0_def_c41_bsm.ftex" />
+    <None Include="assets\camo\greentigerstripe\dds3_main0_def_c18_bsm.1.ftexs" />
+    <None Include="assets\camo\greentigerstripe\dds3_main0_def_c18_bsm.2.ftexs" />
+    <None Include="assets\camo\greentigerstripe\dds3_main0_def_c18_bsm.3.ftexs" />
+    <None Include="assets\camo\greentigerstripe\dds3_main0_def_c18_bsm.ftex" />
+    <None Include="assets\camo\ironblue\dds3_main0_def_c46_bsm.1.ftexs" />
+    <None Include="assets\camo\ironblue\dds3_main0_def_c46_bsm.2.ftexs" />
+    <None Include="assets\camo\ironblue\dds3_main0_def_c46_bsm.3.ftexs" />
+    <None Include="assets\camo\ironblue\dds3_main0_def_c46_bsm.ftex" />
+    <None Include="assets\camo\irongreen\dds3_main0_def_c45_bsm.1.ftexs" />
+    <None Include="assets\camo\irongreen\dds3_main0_def_c45_bsm.2.ftexs" />
+    <None Include="assets\camo\irongreen\dds3_main0_def_c45_bsm.3.ftexs" />
+    <None Include="assets\camo\irongreen\dds3_main0_def_c45_bsm.ftex" />
+    <None Include="assets\camo\khakiurban2t\dds3_main0_def_c60_bsm.1.ftexs" />
+    <None Include="assets\camo\khakiurban2t\dds3_main0_def_c60_bsm.2.ftexs" />
+    <None Include="assets\camo\khakiurban2t\dds3_main0_def_c60_bsm.3.ftexs" />
+    <None Include="assets\camo\khakiurban2t\dds3_main0_def_c60_bsm.ftex" />
+    <None Include="assets\camo\lichen\dds3_main0_def_c30_bsm.1.ftexs" />
+    <None Include="assets\camo\lichen\dds3_main0_def_c30_bsm.2.ftexs" />
+    <None Include="assets\camo\lichen\dds3_main0_def_c30_bsm.3.ftexs" />
+    <None Include="assets\camo\lichen\dds3_main0_def_c30_bsm.ftex" />
+    <None Include="assets\camo\lightrubber\dds3_main0_def_c47_bsm.1.ftexs" />
+    <None Include="assets\camo\lightrubber\dds3_main0_def_c47_bsm.2.ftexs" />
+    <None Include="assets\camo\lightrubber\dds3_main0_def_c47_bsm.3.ftexs" />
+    <None Include="assets\camo\lightrubber\dds3_main0_def_c47_bsm.ftex" />
+    <None Include="assets\camo\mud\dds3_main0_def_c53_bsm.1.ftexs" />
+    <None Include="assets\camo\mud\dds3_main0_def_c53_bsm.2.ftexs" />
+    <None Include="assets\camo\mud\dds3_main0_def_c53_bsm.3.ftexs" />
+    <None Include="assets\camo\mud\dds3_main0_def_c53_bsm.ftex" />
+    <None Include="assets\camo\nightbush\dds3_main0_def_c25_bsm.1.ftexs" />
+    <None Include="assets\camo\nightbush\dds3_main0_def_c25_bsm.2.ftexs" />
+    <None Include="assets\camo\nightbush\dds3_main0_def_c25_bsm.3.ftexs" />
+    <None Include="assets\camo\nightbush\dds3_main0_def_c25_bsm.ftex" />
+    <None Include="assets\camo\nightsplitter\dds3_main0_def_c16_bsm.1.ftexs" />
+    <None Include="assets\camo\nightsplitter\dds3_main0_def_c16_bsm.2.ftexs" />
+    <None Include="assets\camo\nightsplitter\dds3_main0_def_c16_bsm.3.ftexs" />
+    <None Include="assets\camo\nightsplitter\dds3_main0_def_c16_bsm.ftex" />
+    <None Include="assets\camo\oldrose\dds3_main0_def_c39_bsm.1.ftexs" />
+    <None Include="assets\camo\oldrose\dds3_main0_def_c39_bsm.2.ftexs" />
+    <None Include="assets\camo\oldrose\dds3_main0_def_c39_bsm.3.ftexs" />
+    <None Include="assets\camo\oldrose\dds3_main0_def_c39_bsm.ftex" />
+    <None Include="assets\camo\olivedrab\dds3_main0_def_c01_bsm.1.ftexs" />
+    <None Include="assets\camo\olivedrab\dds3_main0_def_c01_bsm.2.ftexs" />
+    <None Include="assets\camo\olivedrab\dds3_main0_def_c01_bsm.3.ftexs" />
+    <None Include="assets\camo\olivedrab\dds3_main0_def_c01_bsm.ftex" />
+    <None Include="assets\camo\parasitemist\dds3_main0_def_c38_bsm.1.ftexs" />
+    <None Include="assets\camo\parasitemist\dds3_main0_def_c38_bsm.2.ftexs" />
+    <None Include="assets\camo\parasitemist\dds3_main0_def_c38_bsm.3.ftexs" />
+    <None Include="assets\camo\parasitemist\dds3_main0_def_c38_bsm.ftex" />
+    <None Include="assets\camo\rain\dds3_main0_def_c17_bsm.1.ftexs" />
+    <None Include="assets\camo\rain\dds3_main0_def_c17_bsm.2.ftexs" />
+    <None Include="assets\camo\rain\dds3_main0_def_c17_bsm.3.ftexs" />
+    <None Include="assets\camo\rain\dds3_main0_def_c17_bsm.ftex" />
+    <None Include="assets\camo\redrust\dds3_main0_def_c48_bsm.1.ftexs" />
+    <None Include="assets\camo\redrust\dds3_main0_def_c48_bsm.2.ftexs" />
+    <None Include="assets\camo\redrust\dds3_main0_def_c48_bsm.3.ftexs" />
+    <None Include="assets\camo\redrust\dds3_main0_def_c48_bsm.ftex" />
+    <None Include="assets\camo\ripple\dds3_main0_def_c28_bsm.1.ftexs" />
+    <None Include="assets\camo\ripple\dds3_main0_def_c28_bsm.2.ftexs" />
+    <None Include="assets\camo\ripple\dds3_main0_def_c28_bsm.3.ftexs" />
+    <None Include="assets\camo\ripple\dds3_main0_def_c28_bsm.ftex" />
+    <None Include="assets\camo\solum\dds3_main0_def_c27_bsm.1.ftexs" />
+    <None Include="assets\camo\solum\dds3_main0_def_c27_bsm.2.ftexs" />
+    <None Include="assets\camo\solum\dds3_main0_def_c27_bsm.3.ftexs" />
+    <None Include="assets\camo\solum\dds3_main0_def_c27_bsm.ftex" />
+    <None Include="assets\camo\splitter\dds3_main0_def_c08_bsm.1.ftexs" />
+    <None Include="assets\camo\splitter\dds3_main0_def_c08_bsm.2.ftexs" />
+    <None Include="assets\camo\splitter\dds3_main0_def_c08_bsm.3.ftexs" />
+    <None Include="assets\camo\splitter\dds3_main0_def_c08_bsm.ftex" />
+    <None Include="assets\camo\square\dds3_main0_def_c14_bsm.1.ftexs" />
+    <None Include="assets\camo\square\dds3_main0_def_c14_bsm.2.ftexs" />
+    <None Include="assets\camo\square\dds3_main0_def_c14_bsm.3.ftexs" />
+    <None Include="assets\camo\square\dds3_main0_def_c14_bsm.ftex" />
+    <None Include="assets\camo\steelblue\dds3_main0_def_c54_bsm.1.ftexs" />
+    <None Include="assets\camo\steelblue\dds3_main0_def_c54_bsm.2.ftexs" />
+    <None Include="assets\camo\steelblue\dds3_main0_def_c54_bsm.3.ftexs" />
+    <None Include="assets\camo\steelblue\dds3_main0_def_c54_bsm.ftex" />
+    <None Include="assets\camo\steelgreen\dds3_main0_def_c50_bsm.1.ftexs" />
+    <None Include="assets\camo\steelgreen\dds3_main0_def_c50_bsm.2.ftexs" />
+    <None Include="assets\camo\steelgreen\dds3_main0_def_c50_bsm.3.ftexs" />
+    <None Include="assets\camo\steelgreen\dds3_main0_def_c50_bsm.ftex" />
+    <None Include="assets\camo\steelgrey\dds3_main0_def_c49_bsm.1.ftexs" />
+    <None Include="assets\camo\steelgrey\dds3_main0_def_c49_bsm.2.ftexs" />
+    <None Include="assets\camo\steelgrey\dds3_main0_def_c49_bsm.3.ftexs" />
+    <None Include="assets\camo\steelgrey\dds3_main0_def_c49_bsm.ftex" />
+    <None Include="assets\camo\steelkhaki\dds3_main0_def_c37_bsm.1.ftexs" />
+    <None Include="assets\camo\steelkhaki\dds3_main0_def_c37_bsm.2.ftexs" />
+    <None Include="assets\camo\steelkhaki\dds3_main0_def_c37_bsm.3.ftexs" />
+    <None Include="assets\camo\steelkhaki\dds3_main0_def_c37_bsm.ftex" />
+    <None Include="assets\camo\steelorange\dds3_main0_def_c51_bsm.1.ftexs" />
+    <None Include="assets\camo\steelorange\dds3_main0_def_c51_bsm.2.ftexs" />
+    <None Include="assets\camo\steelorange\dds3_main0_def_c51_bsm.3.ftexs" />
+    <None Include="assets\camo\steelorange\dds3_main0_def_c51_bsm.ftex" />
+    <None Include="assets\camo\stone2t\dds3_main0_def_c59_bsm.1.ftexs" />
+    <None Include="assets\camo\stone2t\dds3_main0_def_c59_bsm.2.ftexs" />
+    <None Include="assets\camo\stone2t\dds3_main0_def_c59_bsm.3.ftexs" />
+    <None Include="assets\camo\stone2t\dds3_main0_def_c59_bsm.ftex" />
+    <None Include="assets\camo\stone\dds3_main0_def_c35_bsm.1.ftexs" />
+    <None Include="assets\camo\stone\dds3_main0_def_c35_bsm.2.ftexs" />
+    <None Include="assets\camo\stone\dds3_main0_def_c35_bsm.3.ftexs" />
+    <None Include="assets\camo\stone\dds3_main0_def_c35_bsm.ftex" />
+    <None Include="assets\camo\tigerstripe\dds3_main0_def_c00_bsm.1.ftexs" />
+    <None Include="assets\camo\tigerstripe\dds3_main0_def_c00_bsm.2.ftexs" />
+    <None Include="assets\camo\tigerstripe\dds3_main0_def_c00_bsm.3.ftexs" />
+    <None Include="assets\camo\tigerstripe\dds3_main0_def_c00_bsm.ftex" />
+    <None Include="assets\camo\tselinoyarsk\dds3_main0_def_c52_bsm.1.ftexs" />
+    <None Include="assets\camo\tselinoyarsk\dds3_main0_def_c52_bsm.2.ftexs" />
+    <None Include="assets\camo\tselinoyarsk\dds3_main0_def_c52_bsm.3.ftexs" />
+    <None Include="assets\camo\tselinoyarsk\dds3_main0_def_c52_bsm.ftex" />
+    <None Include="assets\camo\wetwork\dds3_main0_def_c07_bsm.1.ftexs" />
+    <None Include="assets\camo\wetwork\dds3_main0_def_c07_bsm.2.ftexs" />
+    <None Include="assets\camo\wetwork\dds3_main0_def_c07_bsm.3.ftexs" />
+    <None Include="assets\camo\wetwork\dds3_main0_def_c07_bsm.ftex" />
+    <None Include="assets\camo\woodlandfleck\dds3_main0_def_c23_bsm.1.ftexs" />
+    <None Include="assets\camo\woodlandfleck\dds3_main0_def_c23_bsm.2.ftexs" />
+    <None Include="assets\camo\woodlandfleck\dds3_main0_def_c23_bsm.3.ftexs" />
+    <None Include="assets\camo\woodlandfleck\dds3_main0_def_c23_bsm.ftex" />
+    <None Include="assets\camo\woodland\dds3_main0_def_c12_bsm.1.ftexs" />
+    <None Include="assets\camo\woodland\dds3_main0_def_c12_bsm.2.ftexs" />
+    <None Include="assets\camo\woodland\dds3_main0_def_c12_bsm.3.ftexs" />
+    <None Include="assets\camo\woodland\dds3_main0_def_c12_bsm.ftex" />
+    <None Include="assets\camo\zebra\dds3_main0_def_c33_bsm.1.ftexs" />
+    <None Include="assets\camo\zebra\dds3_main0_def_c33_bsm.2.ftexs" />
+    <None Include="assets\camo\zebra\dds3_main0_def_c33_bsm.3.ftexs" />
+    <None Include="assets\camo\zebra\dds3_main0_def_c33_bsm.ftex" />
+    <None Include="assets\pftxs\11b59a3802c4c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\11b59a3802c4c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\11b59a3802c4c\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\11b59a3802c4c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1266155edff0c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1266155edff0c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1266155edff0c\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1266155edff0c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\13c863caa6152\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\13c863caa6152\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\13c863caa6152\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\13c863caa6152\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1437070f69110\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1437070f69110\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1437070f69110\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1437070f69110\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\145668bed4413\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\145668bed4413\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\145668bed4413\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\145668bed4413\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\14e9b9daecbbc\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\14e9b9daecbbc\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\14e9b9daecbbc\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\14e9b9daecbbc\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1532abea18aea\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1532abea18aea\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1532abea18aea\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1532abea18aea\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\159d99bb8c1c2\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\159d99bb8c1c2\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\159d99bb8c1c2\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\159d99bb8c1c2\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\16c82c8b4da6d\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\16c82c8b4da6d\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\16c82c8b4da6d\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\16c82c8b4da6d\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\17d04dd0a0f36\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\17d04dd0a0f36\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\17d04dd0a0f36\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\17d04dd0a0f36\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\17daf133bf383\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\17daf133bf383\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\17f000bcac5da\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\17f000bcac5da\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\17f000bcac5da\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\17f000bcac5da\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1804278e81116\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1804278e81116\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1804278e81116\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1804278e81116\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1cc29ac69e3d6\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1cc29ac69e3d6\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1e92c7bf15152\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1e92c7bf15152\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1eca9dcbe0196\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1eca9dcbe0196\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\208cbf5079ebe\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\208cbf5079ebe\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\208cbf5079ebe\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\208cbf5079ebe\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\20c2540e911b\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\20c2540e911b\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\20c2540e911b\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\20c2540e911b\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\218e29c9d9556\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\218e29c9d9556\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\21a404cccf9a1\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\21a404cccf9a1\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\21a404cccf9a1\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\21a404cccf9a1\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\230cf3ef47a4b\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\230cf3ef47a4b\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\230cf3ef47a4b\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\230cf3ef47a4b\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\23469d1bf324d\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\23469d1bf324d\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\23469d1bf324d\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\23469d1bf324d\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\237d62be25076\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\237d62be25076\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\237d62be25076\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\237d62be25076\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\24148edd5d857\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\24148edd5d857\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\24148edd5d857\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\24148edd5d857\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2487130986adc\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2487130986adc\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2487130986adc\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2487130986adc\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\253fe24ad789d\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\253fe24ad789d\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\253fe24ad789d\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\253fe24ad789d\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\254c3ab8b7c3c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\254c3ab8b7c3c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\254c3ab8b7c3c\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\254c3ab8b7c3c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\25b81dce3190f\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\25b81dce3190f\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\25b81dce3190f\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\25b81dce3190f\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\25be67bad2c7c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\25be67bad2c7c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\25be67bad2c7c\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\25be67bad2c7c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\262a607f722c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\262a607f722c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\262a607f722c\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\262a607f722c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\26394f32128e3\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\26394f32128e3\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\26394f32128e3\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\26394f32128e3\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\26d21e210e3a4\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\26d21e210e3a4\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\272eb4a724e00\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\272eb4a724e00\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\272eb4a724e00\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\272eb4a724e00\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2733d16c8450\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2733d16c8450\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\278f70809f1e9\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\278f70809f1e9\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\278f70809f1e9\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\278f70809f1e9\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2811009901bfd\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2811009901bfd\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2811009901bfd\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2811009901bfd\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\290db0c36d210\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\290db0c36d210\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\290db0c36d210\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\292eb31c3fe81\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\292eb31c3fe81\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\292eb31c3fe81\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\292eb31c3fe81\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2943fb7f65aaf\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2943fb7f65aaf\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2943fb7f65aaf\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2943fb7f65aaf\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2b43aaabc0aea\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2b43aaabc0aea\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2bb7c013ffea4\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2bb7c013ffea4\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2c571b566b9bb\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2c571b566b9bb\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2c875b32b8c2\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2c875b32b8c2\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2d6a30f9d6314\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2d6a30f9d6314\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2de34cebe764d\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2de34cebe764d\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\31c7a0c1d1329\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\31c7a0c1d1329\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\327238fc95649\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\327238fc95649\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\32a58d0340880\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\32a58d0340880\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\32a58d0340880\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\32a58d0340880\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\33bdebb2bd326\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\33bdebb2bd326\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\33cff29a1bd9e\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\33cff29a1bd9e\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\33cff29a1bd9e\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\33cff29a1bd9e\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\34a5b16ac671a\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\34a5b16ac671a\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\34a5b16ac671a\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\34a5b16ac671a\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\34f3e00f5b05\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\34f3e00f5b05\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\34f3e00f5b05\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\34f3e00f5b05\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\359c7176514eb\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\359c7176514eb\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\35f04fba4cd02\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\35f04fba4cd02\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\35f04fba4cd02\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\38511e909354c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\38511e909354c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\388211e125f69\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\388211e125f69\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\38a6d228eed6b\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\38a6d228eed6b\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\38a6d228eed6b\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\38a6d228eed6b\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3903c44a25e56\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3903c44a25e56\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3903c44a25e56\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3903c44a25e56\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\392bbbf17c9bf\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\392bbbf17c9bf\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\392bbbf17c9bf\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\392bbbf17c9bf\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3939aa3a03044\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3939aa3a03044\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3c1c7aac070f9\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3c1c7aac070f9\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3c1c7aac070f9\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3c1c7aac070f9\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1b271d4f1a53e\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1b271d4f1a53e\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1b271d4f1a53e\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1b271d4f1a53e\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1bf4b048ea80a\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1bf4b048ea80a\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1bf4b048ea80a\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1bf4b048ea80a\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1c9f8ed26473f\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1c9f8ed26473f\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1c9f8ed26473f\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1c9f8ed26473f\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1cd23c74d00d\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1cd23c74d00d\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1cd23c74d00d\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1cd23c74d00d\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1d6096feb5aea\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1d6096feb5aea\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1d6096feb5aea\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1d6096feb5aea\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\1e21b2d0b65cb\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\1e21b2d0b65cb\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\1e21b2d0b65cb\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\1e21b2d0b65cb\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2a2a946a54d6c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2a2a946a54d6c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2a2a946a54d6c\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2a2a946a54d6c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2a79e292f69b8\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2a79e292f69b8\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2a79e292f69b8\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2a79e292f69b8\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2b0cbeb0f4a96\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2b0cbeb0f4a96\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2b0cbeb0f4a96\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2b0cbeb0f4a96\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2c7709380064a\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2c7709380064a\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2c7709380064a\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2c7709380064a\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2c821072588ff\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2c821072588ff\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2c821072588ff\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2c821072588ff\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2cd63754b2543\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2cd63754b2543\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2cd63754b2543\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2cd63754b2543\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2d25106894198\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2d25106894198\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2d25106894198\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2d25106894198\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\2e4001f1c9be6\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\2e4001f1c9be6\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\2e4001f1c9be6\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\2e4001f1c9be6\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3a1b8c1b9d96e\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3a1b8c1b9d96e\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3a1b8c1b9d96e\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3a1b8c1b9d96e\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3afda4de2fb38\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3afda4de2fb38\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3afda4de2fb38\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3afda4de2fb38\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3c7988ec58c1b\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3c7988ec58c1b\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3c7988ec58c1b\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3c7988ec58c1b\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3ce1726ce370\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3ce1726ce370\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3ce1726ce370\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3ce1726ce370\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3d5e0d9039495\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3d5e0d9039495\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3dc140135d635\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3dc140135d635\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3dc140135d635\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3dc140135d635\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3e385aa1bb8f8\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3e385aa1bb8f8\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3e385aa1bb8f8\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3e385aa1bb8f8\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3efdfd96ea4c2\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3efdfd96ea4c2\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3efdfd96ea4c2\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3efdfd96ea4c2\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3f292560077d3\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3f292560077d3\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3f3de4fa83f8e\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3f3de4fa83f8e\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3f3de4fa83f8e\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3f3de4fa83f8e\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\3f49392eddd6e\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\3f49392eddd6e\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\3f49392eddd6e\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\3f49392eddd6e\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\4406ed038c90\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\4406ed038c90\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\4c3964a87407\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\4c3964a87407\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\4c3964a87407\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\4c3964a87407\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\627f20d371d9\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\627f20d371d9\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\627f20d371d9\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\627f20d371d9\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\6837de3b4b5f\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\6837de3b4b5f\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\6837de3b4b5f\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\6837de3b4b5f\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\936a49acc4bb\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\936a49acc4bb\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\936a49acc4bb\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\936a49acc4bb\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\93f410cccd64\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\93f410cccd64\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\93f410cccd64\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\93f410cccd64\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\96946bc80109\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\96946bc80109\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\b3325bd5be03\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\b3325bd5be03\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\b3325bd5be03\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\b3325bd5be03\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\bb6e62915504\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\bb6e62915504\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\bb6e62915504\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\bb6e62915504\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\bd65d61ca438\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\bd65d61ca438\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\bd65d61ca438\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\bd65d61ca438\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\cafc5e910bb7\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\cafc5e910bb7\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\cafc5e910bb7\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\cafc5e910bb7\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\cm_flat_black\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\cm_flat_black\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\cm_flat_gray\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\cm_flat_gray\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\cm_flat_white\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\cm_flat_white\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\d5c68ae49b44\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\d5c68ae49b44\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\d5c68ae49b44\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\d5c68ae49b44\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\db4a55d2d1b9\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\db4a55d2d1b9\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\de8b3120d362\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\de8b3120d362\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\de8b3120d362\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\de8b3120d362\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\e084d818d183\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\e084d818d183\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\e084d818d183\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\e084d818d183\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\e3c02135d29c\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\e3c02135d29c\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\e3c02135d29c\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\e70b9d9bb69d\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\e70b9d9bb69d\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\e70b9d9bb69d\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\e70b9d9bb69d\1f169d673ad4d.ftex" />
+    <None Include="assets\pftxs\ef62fa6c4bdd\1f169d673ad4d.1.ftexs" />
+    <None Include="assets\pftxs\ef62fa6c4bdd\1f169d673ad4d.2.ftexs" />
+    <None Include="assets\pftxs\ef62fa6c4bdd\1f169d673ad4d.3.ftexs" />
+    <None Include="assets\pftxs\ef62fa6c4bdd\1f169d673ad4d.ftex" />
+    <None Include="assets\warpaint\default\3509e66ed1e1b.1.ftexs" />
+    <None Include="assets\warpaint\default\3509e66ed1e1b.2.ftexs" />
+    <None Include="assets\warpaint\default\3509e66ed1e1b.3.ftexs" />
+    <None Include="assets\warpaint\default\3509e66ed1e1b.ftex" />
+    <None Include="assets\warpaint\hospital\274350ff6fbe3.1.ftexs" />
+    <None Include="assets\warpaint\hospital\274350ff6fbe3.ftex" />
+    <None Include="assets\warpaint\prisoner\3509e66ed1e1b.1.ftexs" />
+    <None Include="assets\warpaint\prisoner\3509e66ed1e1b.2.ftexs" />
+    <None Include="assets\warpaint\prisoner\3509e66ed1e1b.3.ftexs" />
+    <None Include="assets\warpaint\prisoner\3509e66ed1e1b.ftex" />
+    <None Include="assets\warpaint\sniperwolf\3509e66ed1e1b.1.ftexs" />
+    <None Include="assets\warpaint\sniperwolf\3509e66ed1e1b.2.ftexs" />
+    <None Include="assets\warpaint\sniperwolf\3509e66ed1e1b.3.ftexs" />
+    <None Include="assets\warpaint\sniperwolf\3509e66ed1e1b.ftex" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\image\11b59a3802c4c.png" />
+    <Content Include="assets\image\1266155edff0c.png" />
+    <Content Include="assets\image\13c863caa6152.png" />
+    <Content Include="assets\image\1437070f69110.png" />
+    <Content Include="assets\image\145668bed4413.png" />
+    <Content Include="assets\image\14e9b9daecbbc.png" />
+    <Content Include="assets\image\1532abea18aea.png" />
+    <Content Include="assets\image\159d99bb8c1c2.png" />
+    <Content Include="assets\image\16c82c8b4da6d.png" />
+    <Content Include="assets\image\17d04dd0a0f36.png" />
+    <Content Include="assets\image\17daf133bf383.png" />
+    <Content Include="assets\image\17f000bcac5da.png" />
+    <Content Include="assets\image\1804278e81116.png" />
+    <Content Include="assets\image\1b271d4f1a53e.png" />
+    <Content Include="assets\image\1bf4b048ea80a.png" />
+    <Content Include="assets\image\1c9f8ed26473f.png" />
+    <Content Include="assets\image\1cc29ac69e3d6.png" />
+    <Content Include="assets\image\1cd23c74d00d.png" />
+    <Content Include="assets\image\1d6096feb5aea.png" />
+    <Content Include="assets\image\1e21b2d0b65cb.png" />
+    <Content Include="assets\image\1e92c7bf15152.png" />
+    <Content Include="assets\image\1eca9dcbe0196.png" />
+    <Content Include="assets\image\208cbf5079ebe.png" />
+    <Content Include="assets\image\20c2540e911b.png" />
+    <Content Include="assets\image\218e29c9d9556.png" />
+    <Content Include="assets\image\21a404cccf9a1.png" />
+    <Content Include="assets\image\230cf3ef47a4b.png" />
+    <Content Include="assets\image\23469d1bf324d.png" />
+    <Content Include="assets\image\237d62be25076.png" />
+    <Content Include="assets\image\24148edd5d857.png" />
+    <Content Include="assets\image\2487130986adc.png" />
+    <Content Include="assets\image\253fe24ad789d.png" />
+    <Content Include="assets\image\254c3ab8b7c3c.png" />
+    <Content Include="assets\image\25b81dce3190f.png" />
+    <Content Include="assets\image\25be67bad2c7c.png" />
+    <Content Include="assets\image\262a607f722c.png" />
+    <Content Include="assets\image\26394f32128e3.png" />
+    <Content Include="assets\image\26d21e210e3a4.png" />
+    <Content Include="assets\image\272eb4a724e00.png" />
+    <Content Include="assets\image\2733d16c8450.png" />
+    <Content Include="assets\image\278f70809f1e9.png" />
+    <Content Include="assets\image\2811009901bfd.png" />
+    <Content Include="assets\image\290db0c36d210.png" />
+    <Content Include="assets\image\292eb31c3fe81.png" />
+    <Content Include="assets\image\2943fb7f65aaf.png" />
+    <Content Include="assets\image\2a2a946a54d6c.png" />
+    <Content Include="assets\image\2a79e292f69b8.png" />
+    <Content Include="assets\image\2b0cbeb0f4a96.png" />
+    <Content Include="assets\image\2b43aaabc0aea.png" />
+    <Content Include="assets\image\2bb7c013ffea4.png" />
+    <Content Include="assets\image\2c571b566b9bb.png" />
+    <Content Include="assets\image\2c7709380064a.png" />
+    <Content Include="assets\image\2c821072588ff.png" />
+    <Content Include="assets\image\2c875b32b8c2.png" />
+    <Content Include="assets\image\2cd63754b2543.png" />
+    <Content Include="assets\image\2d25106894198.png" />
+    <Content Include="assets\image\2d6a30f9d6314.png" />
+    <Content Include="assets\image\2de34cebe764d.png" />
+    <Content Include="assets\image\2e4001f1c9be6.png" />
+    <Content Include="assets\image\31c7a0c1d1329.png" />
+    <Content Include="assets\image\327238fc95649.png" />
+    <Content Include="assets\image\32a58d0340880.png" />
+    <Content Include="assets\image\33bdebb2bd326.png" />
+    <Content Include="assets\image\33cff29a1bd9e.png" />
+    <Content Include="assets\image\34a5b16ac671a.png" />
+    <Content Include="assets\image\34f3e00f5b05.png" />
+    <Content Include="assets\image\359c7176514eb.png" />
+    <Content Include="assets\image\35f04fba4cd02.png" />
+    <Content Include="assets\image\38511e909354c.png" />
+    <Content Include="assets\image\388211e125f69.png" />
+    <Content Include="assets\image\38a6d228eed6b.png" />
+    <Content Include="assets\image\3903c44a25e56.png" />
+    <Content Include="assets\image\392bbbf17c9bf.png" />
+    <Content Include="assets\image\3939aa3a03044.png" />
+    <Content Include="assets\image\3a1b8c1b9d96e.png" />
+    <Content Include="assets\image\3afda4de2fb38.png" />
+    <Content Include="assets\image\3c1c7aac070f9.png" />
+    <Content Include="assets\image\3c7988ec58c1b.png" />
+    <Content Include="assets\image\3ce1726ce370.png" />
+    <Content Include="assets\image\3d5e0d9039495.png" />
+    <Content Include="assets\image\3dc140135d635.png" />
+    <Content Include="assets\image\3e385aa1bb8f8.png" />
+    <Content Include="assets\image\3efdfd96ea4c2.png" />
+    <Content Include="assets\image\3f292560077d3.png" />
+    <Content Include="assets\image\3f3de4fa83f8e.png" />
+    <Content Include="assets\image\3f49392eddd6e.png" />
+    <Content Include="assets\image\4406ed038c90.png" />
+    <Content Include="assets\image\4c3964a87407.png" />
+    <Content Include="assets\image\627f20d371d9.png" />
+    <Content Include="assets\image\6837de3b4b5f.png" />
+    <Content Include="assets\image\936a49acc4bb.png" />
+    <Content Include="assets\image\93f410cccd64.png" />
+    <Content Include="assets\image\96946bc80109.png" />
+    <Content Include="assets\image\b3325bd5be03.png" />
+    <Content Include="assets\image\bb6e62915504.png" />
+    <Content Include="assets\image\bd65d61ca438.png" />
+    <Content Include="assets\image\cafc5e910bb7.png" />
+    <Content Include="assets\image\cm_flat_black.png" />
+    <Content Include="assets\image\cm_flat_gray.png" />
+    <Content Include="assets\image\cm_flat_white.png" />
+    <Content Include="assets\image\d5c68ae49b44.png" />
+    <Content Include="assets\image\db4a55d2d1b9.png" />
+    <Content Include="assets\image\de8b3120d362.png" />
+    <Content Include="assets\image\default.png" />
+    <Content Include="assets\image\e084d818d183.png" />
+    <Content Include="assets\image\e3c02135d29c.png" />
+    <Content Include="assets\image\e70b9d9bb69d.png" />
+    <Content Include="assets\image\ef62fa6c4bdd.png" />
+    <Content Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)assets" "$(TargetDir)assets\" /S /D</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
