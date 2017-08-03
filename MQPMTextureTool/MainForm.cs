@@ -175,6 +175,7 @@ namespace MQPMTextureTool
                 "mgs1",
                 "ninja",
                 "raiden",
+                "ocelot",
                 "dla0",
                 "dla1",
                 "dlb0",
@@ -193,6 +194,8 @@ namespace MQPMTextureTool
                 "battledress",
                 "parasite",
                 "swimwear",
+                "swimwear_g",
+                "swimwear_h",
                 "dlc0",
                 "dlc1",
                 "dle0",
@@ -211,6 +214,8 @@ namespace MQPMTextureTool
                 "battledress",
                 "parasite",
                 "swimwear",
+                "swimwear_g",
+                "swimwear_h",
                 "dla0",
                 "dla1",
                 "dlb0",
@@ -257,6 +262,16 @@ namespace MQPMTextureTool
             swimwear.display = "Swim Suit";
             outfits.Add(swimwear);
 
+            Outfit swimwear_g = new Outfit();
+            swimwear_g.name = "swimwear_g";
+            swimwear_g.display = "Gob Suit";
+            outfits.Add(swimwear_g);
+
+            Outfit swimwear_h = new Outfit();
+            swimwear_h.name = "swimwear_h";
+            swimwear_h.display = "Meg Suit";
+            outfits.Add(swimwear_h);
+
             Outfit gz_suit = new Outfit();
             gz_suit.name = "gz_suit";
             gz_suit.display = "SV-Sneaking Suit";
@@ -276,6 +291,11 @@ namespace MQPMTextureTool
             raiden.name = "raiden";
             raiden.display = "Raiden";
             outfits.Add(raiden);
+
+            Outfit ocelot = new Outfit();
+            ocelot.name = "ocelot";
+            ocelot.display = "Ocelot";
+            outfits.Add(ocelot);
 
             Outfit dla0 = new Outfit();
             dla0.name = "dla0";

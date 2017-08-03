@@ -53,9 +53,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Zlib.Portable">
-      <HintPath>bin\Debug\Zlib.Portable.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FatiguesForm.cs">

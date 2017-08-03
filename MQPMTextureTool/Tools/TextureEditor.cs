@@ -394,6 +394,12 @@ namespace MQPMTextureTool
             plparts_raiden.hasHead = false;
             outfits.Add(plparts_raiden);
 
+            Outfit plparts_ocelot = new Outfit();
+            plparts_ocelot.name = "plparts_ocelot";
+            plparts_ocelot.outfitPath = @"\Assets\tpp\chara\ooc\Scenes\ooc0_main1_def.fmdl";
+            plparts_ocelot.hasHead = false;
+            outfits.Add(plparts_ocelot);
+
             Outfit plparts_dd_female = new Outfit();
             plparts_dd_female.name = "plparts_dd_female";
             plparts_dd_female.outfitPath = @"\Assets\tpp\chara\dds\Scenes\dds6_main0_def.fmdl";
@@ -423,6 +429,18 @@ namespace MQPMTextureTool
             plparts_ddf_swimwear.outfitPath = @"\Assets\tpp\chara\dlf\Scenes\dlf0_main0_def_f.fmdl";
             plparts_ddf_swimwear.hasHead = true;
             outfits.Add(plparts_ddf_swimwear);
+
+            Outfit plparts_ddf_swimwear_g = new Outfit();
+            plparts_ddf_swimwear_g.name = "plparts_ddf_swimwear_g";
+            plparts_ddf_swimwear_g.outfitPath = @"\Assets\tpp\chara\dlg\Scenes\dlg0_main0_def_f.fmdl";
+            plparts_ddf_swimwear_g.hasHead = true;
+            outfits.Add(plparts_ddf_swimwear_g);
+
+            Outfit plparts_ddf_swimwear_h = new Outfit();
+            plparts_ddf_swimwear_h.name = "plparts_ddf_swimwear_h";
+            plparts_ddf_swimwear_h.outfitPath = @"\Assets\tpp\chara\dlh\Scenes\dlh0_main0_def_f.fmdl";
+            plparts_ddf_swimwear_h.hasHead = true;
+            outfits.Add(plparts_ddf_swimwear_h);
 
             Outfit plparts_dd_male = new Outfit();
             plparts_dd_male.name = "plparts_dd_male";

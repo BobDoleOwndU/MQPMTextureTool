@@ -9,7 +9,6 @@ namespace MQPMTextureTool
         {
             public string name;
             public string display;
-            public string pftxs;
         } //struct Camo ends
 
         string outputPath;
